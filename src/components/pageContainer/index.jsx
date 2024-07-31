@@ -8,7 +8,7 @@ const pageFont = localFont({
 
 const PageContainer = ({ title, children }) => {
   return (
-    <section className="min-h-[calc(100vh-7em)]">
+    <section className="min-h-[calc(100vh-10em)]">
       {children}
       <div
         className={`fixed bottom-12 text-right mr-10 w-[50%] opacity-5 right-[0px] ${pageFont.variable}`}

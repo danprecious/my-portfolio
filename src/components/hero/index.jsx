@@ -34,12 +34,12 @@ const HeroSection = () => {
   return (
     <div className=" flex justify-center flex-col">
       <div className={`${myFont.variable}`}>
-        <h1 className="md:text-[8rem] text-[4rem] text-center md:text-center md:p-3 py-8 px-2  font- font-myFont  flex justify-center items-center">
+        <h1 className="md:text-[7.5rem] text-[4rem] text-center md:text-center md:p-3 py-8 px-2  font- font-myFont  flex justify-center items-center">
           Building <br /> Web Products
         </h1>
       </div>
       <div className="flex justify-between flex-col md:flex-row">
-        <div className="md:w-[27%] text-balance md:mx-12 p-4 text-center md:text-left md:text-sm md:p-4">
+        <div className="md:w-[27%] text-balance md:mx-12 p-4 text-center md:text-left md:text-xs md:p-4">
           <p className="">
           Through passion, dedication, grit and hardwork, <br /> I strive to
           develop web products that users aren't just pleased with but also want to

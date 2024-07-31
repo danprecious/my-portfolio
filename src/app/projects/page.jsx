@@ -10,8 +10,10 @@ const Projects = () => {
           projects. Here are a few:
         </p>
       </div>
+      {/* below contain all projects. create a data for these projects and map over them. handle them from mongodb later*/}
       <div className="my-14">
         <div className="flex md:items-center flex-col md:flex-row">
+          {/* thumnail of the project */}
           <div className="rounded-[100%] mx-4 md:w-[10%] md:h-[6em] h-[4em] w-[4em] bg-stone-500"></div>
           <div className="p-2 md:mx-4 md:w-[50%] my-2 md:my-0">
             <h3 className="font-pageFont text-[1.2rem]">Matera</h3>
@@ -22,6 +24,7 @@ const Projects = () => {
               error, dignissimos ut labore.
             </p>
           </div>
+          {/* preview gif of the project*/}
           <div className="w-[20em] hidden lg:flex">j</div>
         </div>
       </div>

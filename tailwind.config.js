@@ -17,6 +17,12 @@ module.exports = {
       fontFamily: {
         myFont: ['var(--font-myFont)', ...fontFamily.sans],
         pageFont: ['var(--font-pageFont)', ...fontFamily.sans]
+      },
+      colors :{
+        primary: "var(--primary)",
+        primaryShade: "var(--primary-shade)",
+        secondary: "var(--secondary)",
+        secondaryShade: "var(--secondary-shade)"
       }
     },
   },
