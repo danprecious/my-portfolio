@@ -1,4 +1,5 @@
 import PageContainer from "@/components/pageContainer";
+import { FaGithub, FaLink } from "react-icons/fa";
 
 const Projects = () => {
   return (
@@ -23,6 +24,10 @@ const Projects = () => {
               Accusantium dolore et delectus nemo veritatis aliquid molestiae
               error, dignissimos ut labore.
             </p>
+            <div className="flex text-[2rem]">
+              <FaLink className="p-2 mr-2"/>
+              <FaGithub className="p-2"/>
+            </div>
           </div>
           {/* preview gif of the project*/}
           <div className="w-[20em] hidden lg:flex">j</div>

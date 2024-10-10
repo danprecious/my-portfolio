@@ -3,28 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { FaBriefcase, FaHome, FaInfo, FaPenFancy, FaUserCircle } from "react-icons/fa";
+import { links } from "@/utils/constants";
 
 const NavLinks = () => {
   const [isActive, setIsActive] = useState(false);
-  const links = [
-    {
-      name: "About",
-      href: "/about",
-    },
-    {
-      name: "Projects",
-      href: "/projects",
-    },
-    {
-      name: "Open Diary",
-      href: "/open_diary",
-    },
-    {
-      name: "Contact",
-      href: "/contact",
-    },
-  ];
-
+  
   const path = usePathname();
   console.log(path);
 
