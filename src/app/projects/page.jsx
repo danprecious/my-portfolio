@@ -1,37 +1,62 @@
 import PageContainer from "@/components/pageContainer";
+import { projectData } from "@/utils/constants";
+import Link from "next/link";
 import { FaGithub, FaLink } from "react-icons/fa";
+import { getProjects } from "../api/actions/queryFunctions";
+import Image from "next/image";
 
-const Projects = () => {
+const Projects = async () => {
+  const projects = await getProjects();
+
+  console.log(projects);
+
   return (
-    <div className="flex flex-col md:max-w-[100%]">
+    <div className="flex flex-col w-full">
       <div>
-        <h1 className="font-pageFont md:text-[3rem] text-[1.8em]">Featured Projects</h1>
+        <h1 className="font-pageFont md:text-[3rem] text-[1.8em]">
+          Featured Projects
+        </h1>
         <p className="max-w-[25em] text-sm">
-          Driven by a passion for building, I've developed some meaningful
-          projects. Here are a few:
+          Driven by a passion for building,
         </p>
       </div>
       {/* below contain all projects. create a data for these projects and map over them. handle them from mongodb later*/}
-      <div className="my-14">
-        <div className="flex md:items-center flex-col md:flex-row">
-          {/* thumnail of the project */}
-          <div className="rounded-[100%] mx-4 md:w-[10%] md:h-[6em] h-[4em] w-[4em] bg-stone-500"></div>
-          <div className="p-2 md:mx-4 md:w-[50%] my-2 md:my-0">
-            <h3 className="font-pageFont text-[1.2rem]">Matera</h3>
-            <p className="text-sm">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus,
-              harum iusto! Qui facilis quas corrupti saepe dolor atque?
-              Accusantium dolore et delectus nemo veritatis aliquid molestiae
-              error, dignissimos ut labore.
-            </p>
-            <div className="flex text-[2rem]">
-              <FaLink className="p-2 mr-2"/>
-              <FaGithub className="p-2"/>
+
+      <div className="w-full">
+        {projects.map((project) => {
+          return (
+            <div key={project.id} className="my-10 lg:my-14">
+              <div className="flex md:items-center flex-col md:flex-row">
+                {/* thumnail of the project */}
+                <div className="rounded-lg lg:mr-4 md:w-[10%] md:h-[6em] w-full h-[4em]  bg-stone-500">
+                  <Image
+                    width={100}
+                    height={100}
+                    className="object-cover w-full h-full"
+                    src={`data:image/jpeg;base64,${project.projectFileData}`}
+                    alt={`Cover-image for ${project.title}`}
+                  />
+                </div>
+                <div className="p-2 md:mx-4 md:w-[50%] my-2 md:my-0">
+                  <h3 className="font-pageFont text-[1.2rem]">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm">{project.shortDescription}</p>
+                  <div className="flex text-[2rem] my-2">
+                    {/* <Link href={project.liveSite}>
+                    <FaLink className="p-2 mr-2" />
+                  </Link>
+                  <Link href={project.githubLink}>
+                    <FaGithub className="p-2" />
+                  </Link> */}
+                  </div>
+                </div>
+                {/* preview gif of the project*/}
+                {/* <div className="w-[20em] hidden lg:flex">j</div> */}
+              </div>
             </div>
-          </div>
-          {/* preview gif of the project*/}
-          <div className="w-[20em] hidden lg:flex">j</div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );

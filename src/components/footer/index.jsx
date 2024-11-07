@@ -18,7 +18,7 @@ const Footer = () => {
   const [isActive, setIsActive] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const path = usePathname();
-  console.log(path);
+  // console.log(path);
 
   const links = [
     {
@@ -49,33 +49,31 @@ const Footer = () => {
   ];
 
   return (
-    <div className=" fixed bottom-0  w-full py-3">
-      {
-        modalOpen && <div className=" px-3 py-6 bg-black">
+    <div className="fixed bottom-0 z-50  w-full">
+      {modalOpen && (
+        <div className=" px-3 py-6 dark:bg-stone-950 bg-white rounded-t-[2em]">
           {links.map((link, index) => {
             return (
               <div
-              key={index}
-              className="flex items-center justify-cente px-2 mx-5 py-3"
-            >
-              <Link
-                href={link.href}
-                className={`${
-                  path === link.href ? "opacity-100" : "opacity-30"
-                } text-xs flex items-center justify-center`}
+                key={index}
+                className="flex items-center justify-cente px-2 mx-5 py-3"
               >
-                <div className="text-[1.5rem] py-2 pr-8">{link.icon}</div>
-                <p className="text-base">
-
-                {link.name}
-                </p>
-              </Link>
-            </div>
-            )
+                <Link
+                  href={link.href}
+                  onClick={() => setModalOpen(!modalOpen)}
+                  className={`${
+                    path === link.href ? "opacity-100" : "opacity-30"
+                  } text-xs flex items-center justify-center`}
+                >
+                  <div className="text-[1.5rem] py-2 pr-8">{link.icon}</div>
+                  <p className="text-base">{link.name}</p>
+                </Link>
+              </div>
+            );
           })}
         </div>
-      }
-      <div className="md:hidden justify-center items-center flex">
+      )}
+      <div className="md:hidden justify-center items-center flex bg-opacity-90 py-2 bg-white bg-blend-screen dark:bg-stone-950">
         {links.slice(0, 3).map((link, index) => {
           return (
             <div
@@ -97,7 +95,7 @@ const Footer = () => {
         <div className="md:hidden ">
           <button onClick={() => setModalOpen(!modalOpen)}>
             <BiMenu />
-            </button>
+          </button>
         </div>
       </div>
     </div>

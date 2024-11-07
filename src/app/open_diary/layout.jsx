@@ -12,7 +12,7 @@ const pageFont = localFont({
 export default function DiaryLayout({ children }) {
   return (
     <PageContainer title="Open Diary">
-      <div className="lg:fixed block lg:w-[15em] lg:max-w-[20em] lg:ml-10 ">
+      <div className="lg:fixed lg:block hidden lg:w-[15em] lg:max-w-[20em] lg:ml-10 ">
         <div className="lg:h-[35em] h-[75vh] object-cover lg:flex lg:items-end">
             jj <br />
             jj <br />

@@ -2,18 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-*{ 
-    /* border: 1px solid red */
+* {
+  /* border: 1px solid red; */
 }
 
-
- :root {
+:root {
   --primary: white;
   --primary-shade: rgb(240, 240, 240);
   --secondary: rgb(8, 4, 8);
   --secondary-shade: rgb(7, 4, 7);
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -39,27 +37,33 @@
     text-wrap: balance;
   }
 
-  .btn{
-    @apply p-8
+  .btn {
+    @apply p-8;
   }
 }
 
-
-@layer components{
-  .thought-card{
-    
+@layer components {
+  .thought-card {
   }
-  .thought-card:hover{
+  .thought-card:hover {
     flex-grow: 2em;
   }
 
-  
-.tech-logo{
-  @apply bg-primaryShade text-white rounded-lg  text-[1.5em] mx-2
-}
+  .overlay-shadow {
+    background-image: linear-gradient(
+      to bottom,
+      transparent,
+      var(--primary)
+      
+    );
+  }
+
+  .tech-logo {
+    @apply bg-primaryShade text-white rounded-lg  text-[1.5em] mx-2;
+  }
 }
 
-.custom-grid{
+.custom-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }

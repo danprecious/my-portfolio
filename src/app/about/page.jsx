@@ -18,7 +18,7 @@ const About = () => {
         A little about me
       </p>
       <p className="md:text-justify text-pretty text-[0.95rem] mb-4">
-        Hi there! I'm <strong>Kayode Dan Precious,</strong> a JavaScript
+        Hi there! I'm <strong className="dark:text-lime-500">Kayode Dan Precious,</strong> a JavaScript
         Developer who loves building web products that are accessible, scalable,
         user-friendly, and innovative.I started my journey with an
         idea of developing Matera, a web platform for school materials. This

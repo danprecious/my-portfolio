@@ -10,7 +10,7 @@ const NavLinks = () => {
   const [isActive, setIsActive] = useState(false);
   
   const path = usePathname();
-  console.log(path);
+  // console.log(path);
 
   return (
     <div className="flex justify-between font-semibold">
