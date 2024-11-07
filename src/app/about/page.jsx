@@ -12,6 +12,39 @@ import {
 } from "react-icons/bi";
 
 const About = () => {
+
+
+
+  const techTools = [
+    {
+      id: "1",
+      name: "MongoDB",
+      tool: <BiLogoMongodb className="tech-logo" />,
+    },
+    {
+      id: "2",
+      name: "Express",
+      tool: <SiExpress className="tech-logo" />,
+    },
+    {
+      id: "3",
+      name: "ReactJS",
+      tool: <BiLogoReact className="tech-logo" />,
+    },
+  
+    {
+      id: "4",
+      name: "NodeJs",
+      tool: <BiLogoNodejs className="tech-logo" />,
+    },
+    {
+      id: "5",
+      name: "NextJs",
+      tool: <RiNextjsFill className="tech-logo" />,
+    },
+  ];
+  
+
   return (
     <article className={`flex flex-col lg:max-w-[] lg:mx-16 px-5 py-5 lg:py-0`}>
       <p className="md:text-[1.5rem]  font-bold  font-pageFont w-[100%] mb-5">
@@ -44,7 +77,8 @@ const About = () => {
           <div className="md:flex py-2 md:justify-between w-full custom-grid">
             {techTools.map((techtool, index) => {
               return (
-                <div className="w-[100px] flex flex-col items-center my-2">
+
+                <div key={techtool.id} className="w-[100px] flex flex-col items-center my-2">
                   <div className="lg:text-[2.5rem] mx-3 my-2">{techtool.tool}</div>
                   <p className="text-xs">{techtool.name}</p>
                 </div>
@@ -59,26 +93,3 @@ const About = () => {
 
 export default About;
 
-const techTools = [
-  {
-    name: "MongoDB",
-    tool: <BiLogoMongodb className="tech-logo" />,
-  },
-  {
-    name: "Express",
-    tool: <SiExpress className="tech-logo" />,
-  },
-  {
-    name: "ReactJS",
-    tool: <BiLogoReact className="tech-logo" />,
-  },
-
-  {
-    name: "NodeJs",
-    tool: <BiLogoNodejs className="tech-logo" />,
-  },
-  {
-    name: "NextJs",
-    tool: <RiNextjsFill className="tech-logo" />,
-  },
-];
