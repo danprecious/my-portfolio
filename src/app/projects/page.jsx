@@ -16,7 +16,7 @@ const Projects = async () => {
         <h1 className="font-pageFont md:text-[3rem] text-[1.8em]">
           Featured Projects
         </h1>
-        <p className="max-w-[25em] text-sm">
+        <p className=" text-sm">
           Driven by a passion for building,
         </p>
       </div>
