@@ -7,24 +7,30 @@ export async function POST(request) {
 
   const { email, password } = body;
 
-  const user = {
-    email,
-    password,
-  };
+  console.log("Received email:", email); 
+  console.log("Received password:", password);
 
+  console.log("Attempting to sign in...");
   try {
     const response = await signIn("credentials", {
       email: email,
       password: password,
       redirect: false,
     });
-    console.log(response);
+
+    console.log("Sign-in response:", response); 
+
+    if (response?.error) {
+      console.error("Sign-in failed:", response.error);
+      return NextResponse.json({ error: response.error }, { status: 400 });
+    }
+
     return NextResponse.json(response, {
       statusText: "Login successful",
       status: "200",
     });
   } catch (error) {
-    console.log(error);
+    console.error("Error during sign-in:", error);
     return NextResponse.json(error.message, { status: 500 });
   }
 }

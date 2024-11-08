@@ -31,7 +31,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             throw new Error("User not found");
           }
         } catch (error) {
-          console.error(error);
+          console.error("error in signIn function", error);
           throw new Error(error)
         }
       },
