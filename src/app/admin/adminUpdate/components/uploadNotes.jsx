@@ -14,10 +14,11 @@ const UploadNotesForm = () => {
   const SubmitHandler = async (data) => {
     console.log("Form data submitted:", data);
 
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
   
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/postNote",
+        `${apiUrl}/api/postNote`,
         data,
         {
           headers: {

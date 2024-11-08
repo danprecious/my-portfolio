@@ -21,9 +21,11 @@ const UploadProjectForm = () => {
 
     console.log(...formData);
 
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/uploadProject",
+        `${apiUrl}/api/uploadProject`,
         formData,
         {
           headers: {
