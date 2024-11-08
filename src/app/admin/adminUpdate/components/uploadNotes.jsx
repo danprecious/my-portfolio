@@ -18,7 +18,7 @@ const UploadNotesForm = () => {
   
     try {
       const response = await axios.post(
-        `${apiUrl}/api/postNote`,
+        "/api/postNote",
         data,
         {
           headers: {

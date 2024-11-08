@@ -35,10 +35,8 @@ const SignInPage = () => {
   const signInAdmin = async (data) => {
     console.log(data);
 
-    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-
     try {
-      const response = await axios.post(`${apiUrl}/api/adminLogin`, data, {
+      const response = await axios.post("/api/adminLogin", data, {
         headers: {
           "Content-type": "application/json",
         },
