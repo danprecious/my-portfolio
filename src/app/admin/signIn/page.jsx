@@ -35,16 +35,14 @@ const SignInPage = () => {
   const signInAdmin = async (data) => {
     console.log(data);
 
+    const apiUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+
     try {
-      const response = await axios.post(
-        "http://localhost:3000/api/adminLogin",
-        data,
-        {
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      );
+      const response = await axios.post(`${apiUrl}/api/adminLogin`, data, {
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
       router.push("/admin/adminUpdate");
       console.log(response);
       return response;
