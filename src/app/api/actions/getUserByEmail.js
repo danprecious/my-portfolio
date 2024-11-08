@@ -4,6 +4,8 @@ export const getUserByEmail = async (email) => {
     password: process.env.USER_PASSWORD,
   };
 
+  console.log("at getUserEmail", user.email, user.password);
+
   try {
     if (user.email === email) {
       return user;
