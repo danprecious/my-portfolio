@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createUser, credentialLogin } from "../actions/queryFunctions";
+
 import { signIn } from "../../../../auth";
 
 export async function POST(request) {
