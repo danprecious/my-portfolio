@@ -6,7 +6,7 @@ import NavBar from "./nav";
 
 const Header = () => {
   return (
-    <header className="w-[100%] sticky top-0 z-50 md:py-6 items-center justify-center  md:justify-between md:px-12 px-4 flex">
+    <header className="w-[100%] sticky top-0 z-50 md:py-6 items-center justify-center bg-white dark:bg-transparent backdrop-blur-md bg-opacity-50  md:justify-between md:px-12 px-4 flex">
       <div className="lg:w-[25%] justify-start">
       <Logo />
       </div>

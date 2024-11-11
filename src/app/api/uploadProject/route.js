@@ -13,6 +13,11 @@ export async function POST(req) {
     const file = formData.get("file");
     const title = formData.get("title");
     const shortDescription = formData.get("shortDescription");
+    const whyProject = formData.get("whyProject")
+    const technologies = formData.get("technologies")
+    const targetUsers = formData.get("targetUsers")
+    const githubLink = formData.get("githubLink")
+    const liveSite = formData.get("liveSite")
 
     const filename = file.name;
 
@@ -29,10 +34,15 @@ export async function POST(req) {
     if (!existingProject) {
       const id = await gridFsStoreFile(file);
       console.log(id);
-
+ 
       const newProject = await createProject({
         title,
         shortDescription,
+        whyProject,
+        technologies,
+        targetUsers,
+        githubLink,
+        liveSite,
         thumbnailId: id,
       });
       console.log(newProject);

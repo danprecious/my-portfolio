@@ -13,7 +13,7 @@ const PageContainer = ({ title, children }) => {
       <div
         className={`fixed bottom-12 text-right mr-10 w-[50%] opacity-5 right-[0px] ${pageFont.variable}`}
       >
-        <p className="z-50 font-pageFont md:text-[6em] text-[3em]">{title}</p>
+        <p className="z-20 font-pageFont md:text-[6em] text-[3em]">{title}</p>
       </div>
     </section>
   );

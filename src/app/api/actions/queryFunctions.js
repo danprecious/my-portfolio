@@ -1,6 +1,6 @@
 "use server";
 
-import { GridFSBucket, MongoClient } from "mongodb";
+import { GridFSBucket, MongoClient, ObjectId } from "mongodb";
 import { signIn } from "../../../../auth";
 import { getUserByEmail } from "./getUserByEmail";
 import prisma from "./globalPrisma";
@@ -29,6 +29,11 @@ export async function createProject(projectData) {
       data: {
         title: projectData.title,
         shortDescription: projectData.shortDescription,
+        whyProject: projectData.whyProject,
+        technologies: projectData.technologies,
+        targetUsers: projectData.targetUsers,
+        githubLink: projectData.githubLink,
+        liveSite: projectData.liveSite,
         thumbnailId: projectData.thumbnailId,
       },
     });
@@ -36,6 +41,44 @@ export async function createProject(projectData) {
   } catch (error) {
     console.error(error);
     return error;
+  }
+}
+
+export async function getOneProject(title) {
+  console.log(title);
+
+  try {
+    const project = await prisma.project.findUnique({
+      where: {
+        title: title,
+      },
+    });
+
+    console.log(project);
+
+    const fileCursor = bucket.find();
+    const thumbnailFiles = await fileCursor.toArray();
+
+    const projectFile = thumbnailFiles.find(
+      (file) => file._id.toString() === project.thumbnailId
+    );
+    console.log(projectFile);
+
+    const projectData = { ...project, projectFile, projectFileData: [] };
+
+    const downloadStream = bucket.openDownloadStream(projectData.projectFile._id);
+    const chunks = [];
+
+    for await (const chunk of downloadStream) {
+      chunks.push(chunk);
+    }
+    projectData.projectFileData = Buffer.concat(chunks).toString("base64");
+
+    // console.log()
+
+    return projectData;
+  } catch (error) {
+    console.error(error);
   }
 }
 

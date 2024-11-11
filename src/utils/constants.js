@@ -23,11 +23,6 @@ export const links = [
     icon: <FaBriefcase />,
   },
   {
-    name: "Open Diary",
-    href: "/open_diary",
-    icon: <FaPenFancy />,
-  },
-  {
     name: "Contact",
     href: "/contact",
     icon: <FaUserCircle />,

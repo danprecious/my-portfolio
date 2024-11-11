@@ -40,6 +40,10 @@
   .btn {
     @apply p-8;
   }
+
+  textarea, input  {
+    @apply p-1 border-[0.5px] border-solid bg-transparent border-stone-950 dark:border-stone-800 border-opacity-10 w-full rounded-md h-[4em] resize-none;
+  }
 }
 
 @layer components {
@@ -50,12 +54,7 @@
   }
 
   .overlay-shadow {
-    background-image: linear-gradient(
-      to bottom,
-      transparent,
-      var(--primary)
-      
-    );
+    background-image: linear-gradient(to bottom, transparent, var(--primary));
   }
 
   .tech-logo {

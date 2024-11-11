@@ -1,7 +1,7 @@
 export const getUserByEmail = async (email) => {
   const user = {
-    email: process.env.USER_EMAIL,
-    password: process.env.USER_PASSWORD,
+    email: process.env.NEXT_USER_EMAIL,
+    password: process.env.NEXT_USER_PASSWORD,
   };
 
   console.log("at getUserEmail", user.email, user.password);
@@ -16,3 +16,4 @@ export const getUserByEmail = async (email) => {
     throw new Error(error);
   }
 };
+ 

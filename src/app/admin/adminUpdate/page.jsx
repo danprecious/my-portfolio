@@ -1,7 +1,7 @@
 import React from "react";
 import { auth } from "../../../../auth";
 import { redirect } from "next/navigation";
-import SwitchActionPage from "./components/switchActionPage";
+import UploadProjectForm from "./components/uploadprojectForm";
 
 const AdminPage = async () => {
   const session = await auth();
@@ -11,8 +11,8 @@ const AdminPage = async () => {
   }
 
   return (
-    <div>
-      <SwitchActionPage />
+    <div className="lg:px-72">
+      <UploadProjectForm />
     </div>
   );
 };

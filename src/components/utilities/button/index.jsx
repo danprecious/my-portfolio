@@ -8,12 +8,12 @@ const CustomButton = ({ children, text, size }) => {
   };
 
   return (
-    <div
-      className={`flex py-3 px-${size} items-center rounded-md justify-center w-full bg-stone-950 dark:text-black dark:bg-lime-500 hover:bg-lime-500 text-white cursor-pointer `}
+    <button
+      className={`flex py-3 px-${size} z-[100px] flex justify-center text-center w-full rounded-md bg-stone-950 dark:text-black dark:bg-lime-500 hover:bg-lime-500 text-white cursor-pointer `}
     >
       {children}
-      <button className="ml-2 text-xs ">{text}</button>
-    </div>
+      <span className="ml-2 text-xs z-50 text-center">{text}</span>
+    </button>
   );
 };
 
