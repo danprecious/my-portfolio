@@ -37,11 +37,6 @@ const Footer = () => {
       icon: <FaBriefcase />,
     },
     {
-      name: "Open Diary",
-      href: "/open_diary",
-      icon: <FaPenFancy />,
-    },
-    {
       name: "Contact",
       href: "/contact",
       icon: <FaPhoneAlt />,
