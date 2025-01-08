@@ -44,7 +44,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 z-50  w-full">
+    <div className="fixed bottom-0 z-50   w-full">
       {modalOpen && (
         <div className=" px-3 py-6 dark:bg-stone-950 bg-white rounded-t-[2em]">
           {links.map((link, index) => {
@@ -68,7 +68,7 @@ const Footer = () => {
           })}
         </div>
       )}
-      <div className="md:hidden justify-center items-center flex bg-opacity-90 py-2 bg-white bg-blend-screen dark:bg-stone-950">
+      <div className="md:hidden justify-center items-center flex py-2 bg-white dark:bg-transparent backdrop-blur-md bg-opacity-50">
         {links.slice(0, 3).map((link, index) => {
           return (
             <div

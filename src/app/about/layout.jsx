@@ -13,8 +13,8 @@ export default function AboutLayout({ children }) {
   return (
     <PageContainer title="about">
       <div className={`lg:fixed block lg:w-[15em] lg:max-w-[20em] lg:ml-10`}>
-        <div className="lg:h-[32em] h-[70vh] object-cover">
-            <Image alt="My image" src="/images/my-image.jpg" width={1024} height={1024} className="object-cover h-[100%]"/>
+        <div className="lg:h-[39em] h-[70vh] object-cover">
+            <Image alt="My image" src="/images/profile2.jpg" width={1024} height={1024} className="object-cover h-[100%]"/>
         </div>
       </div>
       
