@@ -30,7 +30,7 @@ export const gridFsStoreFile = async (file) => {
     .collection("thumbnail.files")
     .findOne({ _id: uploadStream.id });
 
-    console.log(fileItem);
+    console.log("fileItem before pipe", fileItem);
 
   if (!fileItem) {
     // pipe the file from fs to the bucket
@@ -51,8 +51,8 @@ export const gridFsStoreFile = async (file) => {
   }
 
   // LOGS
-  console.log(fileItem);
-  console.log(uploadStream.id);
+  console.log("fileItem", fileItem);
+  console.log("uploadStreamId", uploadStream.id);
   return uploadStream.id;
   console.log(tempFilePath);
   console.log(file);
