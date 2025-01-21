@@ -37,19 +37,23 @@ export const gridFsStoreFile = async (file) => {
 
     console.log("piping file")
 
-    fs.createReadStream(tempFilePath)
-      .pipe(uploadStream)
-      .on("error", (error) => {
-        console.log("Error uploading file");
-      })
-      .on("finish", (file) => {
-        console.log("File uploaded succefully");
-        const fileId = uploadStream.id;
-        console.log(fileId);
-        // cleanup temporary filePath from memory
-        fs.unlinkSync(tempFilePath);
-        return fileId;
-      });
+     await new Promise((resolve, reject) => {
+        fs.createReadStream(tempFilePath)
+          .on("error", (readError) => {
+              console.error("Error reading temp file:", readError);
+              reject(readError);
+          })
+          .pipe(uploadStream)
+          .on("error", (uploadError) => {
+              console.error("Error during upload:", uploadError);
+              reject(uploadError);
+          })
+          .on("finish", () => {
+              console.log("File uploaded successfully:", uploadStream.id);
+              fs.unlinkSync(tempFilePath); // Cleanup
+              resolve(uploadStream.id);
+          });
+    });
   }
 
   // LOGS
