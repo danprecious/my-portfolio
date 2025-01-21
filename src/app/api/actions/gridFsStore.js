@@ -16,6 +16,9 @@ export const gridFsStoreFile = async (file) => {
   // store in a temporary location in storage
   const tempFilePath = path.join(os.tmpdir(), uniqueFileName);
 
+  console.log("Temp file path:", tempFilePath);
+  console.log("Connecting to MongoDB...");
+
   // create buffer and write file to fileSystem
   const buffer = Buffer.from(await file.arrayBuffer());
   fs.writeFileSync(tempFilePath, buffer);

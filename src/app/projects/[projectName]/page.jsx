@@ -11,7 +11,7 @@ const UniqueProject = async ({ params }) => {
 
   const project = await getOneProject(projectName);
   console.log(project);
-
+ 
   return (
     <section className="w-full pb-10">
       {project ? (
