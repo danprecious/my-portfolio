@@ -24,7 +24,7 @@ export const gridFsStoreFile = async (file) => {
   fs.writeFileSync(tempFilePath, buffer);
 
   // open a stream from the bucket to enable uplaod
-  const uploadStream = bucket.openUploadStream(uniqueFileName);
+  const uploadStream =  bucket.openUploadStream(uniqueFileName);
 
   const fileItem = await db
     .collection("thumbnail.files")
@@ -34,6 +34,8 @@ export const gridFsStoreFile = async (file) => {
 
   if (!fileItem) {
     // pipe the file from fs to the bucket
+
+    console.log("piping file")
 
     fs.createReadStream(tempFilePath)
       .pipe(uploadStream)
