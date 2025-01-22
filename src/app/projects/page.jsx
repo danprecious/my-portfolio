@@ -1,12 +1,32 @@
+"use client"
 import PageContainer from "@/components/pageContainer";
 import { projectData } from "@/utils/constants";
 import Link from "next/link";
 import { FaGithub, FaLink } from "react-icons/fa";
 import { getProjects } from "../api/actions/queryFunctions";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Projects = async () => {
-  const projects = await getProjects();
+  const [projects, setprojects] = useState([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const response = await axios.get(`/api/getProjects`, {
+        headers: {
+          "Content-Type": "application/json",
+          "Cache-Control": "no-cache",
+        },
+      });
+
+      const projectData = response.data;
+
+      setprojects(projectData);
+    };
+
+    fetchProjects();
+  }, []);
 
   console.log(projects);
 
@@ -43,9 +63,7 @@ const Projects = async () => {
                       <h3 className="font-pageFont text-[1.2rem]">
                         {project.title}
                       </h3>
-                      <p className="text-sm py-3">
-                  {project.shortDescription}
-                      </p>
+                      <p className="text-sm py-3">{project.shortDescription}</p>
                       {/* <p className="text-sm">{project.shortDescription}</p> */}
                     </div>
                     <div className="flex text-[2rem] mt-5 items-center justify-between">
@@ -73,7 +91,9 @@ const Projects = async () => {
             );
           })
         ) : (
-          <div className="my-32 text-center">Cannot display projects at the moment...</div>
+          <div className="my-32 text-center">
+            Cannot display projects at the moment...
+          </div>
         )}
       </div>
     </div>
