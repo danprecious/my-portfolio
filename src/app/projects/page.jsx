@@ -1,32 +1,37 @@
-"use client"
+export const dynamic = 'force-dynamic'
+
+
 import PageContainer from "@/components/pageContainer";
 import { projectData } from "@/utils/constants";
 import Link from "next/link";
 import { FaGithub, FaLink } from "react-icons/fa";
 import { getProjects } from "../api/actions/queryFunctions";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import axios from "axios";
 
 const Projects = async () => {
-  const [projects, setprojects] = useState([]);
+  // const [projects, setprojects] = useState([]);
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const response = await axios.get(`/api/getProjects`, {
-        headers: {
-          "Content-Type": "application/json",
-          "Cache-Control": "no-cache",
-        },
-      });
+  // useEffect(() => {
+  //   const fetchProjects = async () => {
+  //     const response = await axios.get(`/api/getProjects`, {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Cache-Control": "no-cache",
+  //       },
+  //     });
 
-      const projectData = response.data;
+  //     const projectData = response.data;
 
-      setprojects(projectData);
-    };
+  //     setprojects(projectData);
+  //   };
 
-    fetchProjects();
-  }, []);
+  //   fetchProjects();
+  // }, []);
+
+
+  const projects = await getProjects();
 
   console.log(projects);
 
